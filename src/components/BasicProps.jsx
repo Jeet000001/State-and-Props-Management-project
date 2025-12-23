@@ -34,7 +34,8 @@ const BasicProps = () => {
         incidunt odio eveniet fugiat qui laboriosam omnis reprehenderit quaerat
         enim ad, quibusdam aperiam expedita.
       </p>
-      <div className="space-y-4">
+      {/* Different Colors */}
+      <div className="space-y-4 mt-5">
         <h3>Different Colors</h3>
         <p> Counter : <span className="text-blue-700">{clickCount}</span></p>
         <div className="flex flex-wrap gap-3">
@@ -46,6 +47,36 @@ const BasicProps = () => {
           <Button
             text="Secondary Button"
             color="secondary"
+            onClick={() => setClickCount(clickCount + 1)}
+          />
+          <Button
+            text="Success Button"
+            color="success"
+            onClick={() => setClickCount(clickCount + 1)}
+          />
+          <Button
+            text="Danger Button"
+            color="danger"
+            onClick={() => setClickCount(clickCount + 1)}
+          />
+        </div>
+      </div>
+      {/* Different Sizes */}
+       <div className="space-y-4 mt-5">
+        <h3>Different Sizes</h3>
+        <p> Counter : <span className="text-blue-700">{clickCount}</span></p>
+        <div className="flex flex-wrap gap-3">
+          <Button
+            text="Primary Button"
+            color="primary"
+            size="small"
+            onClick={() => setClickCount(clickCount + 1)}
+          />
+          <Button
+            text="Secondary Button"
+            color="secondary"
+            size="large"
+            disabled={true}
             onClick={() => setClickCount(clickCount + 1)}
           />
           <Button
