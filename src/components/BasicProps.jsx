@@ -1,22 +1,31 @@
 import React, { useState } from "react";
 
-const Button = ({ text, color, size, onClick, disabled }) => {
+const Button = ({ text, color, size = "medium", onClick, disabled }) => {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`px-6 py-2 rounded-lg transition-all duration-300 
-        ${size === "small" ? "text-sm px-4 py-1" : ""} 
-        ${size === "large" ? "text-lg px-8 py-3" : ""}
-        ${color === "primary" ? "bg-blue-500 text-white hover:bg-blue-600" : ""}
+      className={`rounded-lg transition-all duration-300 
         ${
-          color === "secondary"
-            ? "bg-gray-500 text-white hover:bg-gray-600"
-            : ""
+          size === "small" &&
+          "text-sm px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white"
         }
-        ${color === "danger" ? "bg-red-500 text-white hover:bg-red-600 " : ""}
-        ${color === "success" ? "bg-green-500 text-white hover:bg-green-600": ""}
-        ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
+        ${
+          size === "medium" &&
+          "text-base px-5 py-2 bg-blue-500 hover:bg-blue-600 text-white"
+        }
+        ${
+          size === "large" &&
+          "text-lg px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white"
+        }
+
+        ${color === "primary" && "bg-blue-500 text-white hover:bg-blue-600"}
+        ${color === "secondary" && "bg-gray-500 text-white hover:bg-gray-600"}
+        ${color === "danger" && "bg-red-500 text-white hover:bg-red-600"}
+        ${color === "success" && "bg-green-500 text-white hover:bg-green-600"}
+
+        ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
+      `}
     >
       {text}
     </button>
@@ -37,7 +46,6 @@ const BasicProps = () => {
       {/* Different Colors */}
       <div className="space-y-4 mt-5">
         <h3>Different Colors</h3>
-        <p> Counter : <span className="text-blue-700">{clickCount}</span></p>
         <div className="flex flex-wrap gap-3">
           <Button
             text="Primary Button"
@@ -62,34 +70,46 @@ const BasicProps = () => {
         </div>
       </div>
       {/* Different Sizes */}
-       <div className="space-y-4 mt-5">
+      <div className="space-y-4 mt-5">
         <h3>Different Sizes</h3>
-        <p> Counter : <span className="text-blue-700">{clickCount}</span></p>
+
         <div className="flex flex-wrap gap-3">
           <Button
-            text="Primary Button"
-            color="primary"
+            text="small"
             size="small"
             onClick={() => setClickCount(clickCount + 1)}
           />
           <Button
-            text="Secondary Button"
-            color="secondary"
-            size="large"
-            disabled={true}
+            text="Medium
+            (default)"
             onClick={() => setClickCount(clickCount + 1)}
           />
           <Button
             text="Success Button"
-            color="success"
-            onClick={() => setClickCount(clickCount + 1)}
-          />
-          <Button
-            text="Danger Button"
-            color="danger"
+            size="large"
             onClick={() => setClickCount(clickCount + 1)}
           />
         </div>
+      </div>
+      {/* Disable Button */}
+      <div className="space-y-4 mt-5">
+        <h3>Disable State</h3>
+        <div className="flex flex-wrap gap-3">
+          <Button
+            text="Enabled Button"
+            color="primary"
+            onClick={() => setClickCount(clickCount + 1)}
+          />
+          <Button
+            text="Disabled Button"
+            disabled={true}
+            onClick={() => setClickCount(clickCount + 1)}
+          />
+        </div>
+      </div>
+
+      <div className="bg-blue-300 rounded-md px-5 py-2 mt-5">
+        <h1 className="text-white">Counter : {clickCount}</h1>
       </div>
     </section>
   );
