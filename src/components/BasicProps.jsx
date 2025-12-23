@@ -107,7 +107,7 @@ const BasicProps = () => {
           />
         </div>
       </div>
-
+      {/* counter */}
       <div className="bg-blue-300 rounded-md px-5 py-2 mt-5">
         <h1 className="text-white">Counter : {clickCount}</h1>
       </div>
