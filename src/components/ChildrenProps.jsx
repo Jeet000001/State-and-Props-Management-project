@@ -45,7 +45,7 @@ const Container = ({ children, layout = "vertical" }) => {
   //  Main Component
 const ChildrenProps = () => {
   return (
-    <section className="p-10 bg-gray-50 rounded-3xl shadow-xl">
+    <section className="p-10 bg-gray-50 rounded-xl shadow-xl">
       <h2 className="text-3xl font-bold text-gray-800 mb-3">
         Children Props
       </h2>

@@ -129,7 +129,7 @@ const ComplexProps = () => {
   ];
 
   return (
-    <div className="h-auto bg-gray-50 p-10 rounded-2xl">
+    <div className="h-auto bg-gray-50 p-10 rounded-xl">
       <h2 className="text-2xl font-bold mb-2">Complex/Nested Props</h2>
       <p className="mb-5">
         Complex props allow you to pass nested objects and functions, enabling
@@ -139,7 +139,7 @@ const ComplexProps = () => {
         User Profile Card (Nested User, Theme, and Actions) :{" "}
       </h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:flex justify-center md:gap-20 gap-8">
         {Users.map((userData, index) => (
           <UserProfileCard key={index} {...userData} />
         ))}
