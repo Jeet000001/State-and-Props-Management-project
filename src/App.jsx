@@ -63,7 +63,8 @@ const AppContent = () => {
             Build with Node+Vite+React+Tailwind CSS
           </p>
         </header>
-        <div className="scroll-mt-200">
+        <div className="flex flex-col gap-5">
+          <div className="scroll-mt-200">
           <BasicProps />
         </div>
         <div className="scroll-mt-200">
@@ -77,6 +78,7 @@ const AppContent = () => {
         </div>
         <div className="scroll-mt-200">
           <ThemeToggler />
+        </div>
         </div>
       </div>
       <footer className={`mt-12 text-center pb-8 transition-colors ${
