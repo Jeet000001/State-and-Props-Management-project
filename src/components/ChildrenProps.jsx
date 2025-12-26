@@ -1,10 +1,25 @@
-// Card Component
+import { useTheme } from "./ThemeToggler";
+
+/* ---------------- Card Component ---------------- */
 const Card = ({ children, title, color = "blue" }) => {
+  const { isDark } = useTheme();
+
   const colorClasses = {
-    blue: "border-blue-500 from-blue-50 to-blue-100",
-    green: "border-green-500 from-green-50 to-green-100",
-    purple: "border-purple-500 from-purple-50 to-purple-100",
-    red: "border-red-500 from-red-50 to-red-100",
+    blue: isDark
+      ? "border-blue-400 from-blue-900/40 to-blue-800/40"
+      : "border-blue-500 from-blue-50 to-blue-100",
+
+    green: isDark
+      ? "border-green-400 from-green-900/40 to-green-800/40"
+      : "border-green-500 from-green-50 to-green-100",
+
+    purple: isDark
+      ? "border-purple-400 from-purple-900/40 to-purple-800/40"
+      : "border-purple-500 from-purple-50 to-purple-100",
+
+    red: isDark
+      ? "border-red-400 from-red-900/40 to-red-800/40"
+      : "border-red-500 from-red-50 to-red-100",
   };
 
   return (
@@ -18,20 +33,27 @@ const Card = ({ children, title, color = "blue" }) => {
       `}
     >
       {title && (
-        <h2 className="text-xl font-semibold mb-4 text-gray-800">
+        <h2
+          className={`text-xl font-semibold mb-4 ${
+            isDark ? "text-white" : "text-gray-800"
+          }`}
+        >
           {title}
         </h2>
       )}
 
-      <div className="text-gray-700 space-y-2 text-sm leading-relaxed">
+      <div
+        className={`space-y-2 text-sm leading-relaxed ${
+          isDark ? "text-gray-300" : "text-gray-700"
+        }`}
+      >
         {children}
       </div>
     </div>
   );
 };
 
-
-//Container Component
+/* ---------------- Container Component ---------------- */
 const Container = ({ children, layout = "vertical" }) => {
   const layoutClasses = {
     vertical: "flex flex-col space-y-6",
@@ -42,21 +64,39 @@ const Container = ({ children, layout = "vertical" }) => {
   return <div className={layoutClasses[layout]}>{children}</div>;
 };
 
-  //  Main Component
+/* ---------------- Main Component ---------------- */
 const ChildrenProps = () => {
+  const { isDark } = useTheme();
+
   return (
-    <section className="p-10 bg-gray-50 rounded-xl shadow-xl">
-      <h2 className="text-3xl font-bold text-gray-800 mb-3">
+    <section
+      className={`p-10 rounded-2xl shadow-xl transition-colors duration-300 ${
+        isDark ? "bg-gray-800" : "bg-gray-50"
+      }`}
+    >
+      <h2
+        className={`text-3xl font-bold mb-3 ${
+          isDark ? "text-white" : "text-gray-800"
+        }`}
+      >
         Children Props
       </h2>
 
-      <p className="text-gray-600 max-w-2xl mb-8">
+      <p
+        className={`max-w-2xl mb-8 ${
+          isDark ? "text-gray-300" : "text-gray-600"
+        }`}
+      >
         This example demonstrates how children props allow flexible and reusable
         components with custom layouts and content.
       </p>
 
       <div>
-        <h3 className="text-xl font-semibold mb-5 text-gray-700">
+        <h3
+          className={`text-xl font-semibold mb-5 ${
+            isDark ? "text-gray-200" : "text-gray-700"
+          }`}
+        >
           Card Component with Children
         </h3>
 
