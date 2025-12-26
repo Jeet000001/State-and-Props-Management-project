@@ -3,7 +3,7 @@ import BasicProps from "./components/BasicProps"
 import ChildrenProps from "./components/ChildrenProps"
 import ComplexProps from "./components/ComplexProps"
 import RefProps from "./components/RefProps"
-import ThemeToggler from "./components/ThemeToggler"
+import ThemeToggler, {ThemeProvider} from "./components/ThemeToggler"
 
 const Navigation = () => {
   const isDark = true;
@@ -95,7 +95,9 @@ const AppContent = () => {
 const App = () => {
   return (
     <div>
-      <AppContent />
+      <ThemeProvider>
+        <AppContent />
+      </ThemeProvider>
     </div>
   );
 };
