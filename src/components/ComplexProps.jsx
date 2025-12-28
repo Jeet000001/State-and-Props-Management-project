@@ -51,9 +51,7 @@ const UserProfileCard = ({ user, theme, action }) => {
 
       {/* Divider */}
       <div
-        className={`my-5 h-px ${
-          isDark ? "bg-white/10" : "bg-black/10"
-        }`}
+        className={`my-5 h-px ${isDark ? "bg-white/10" : "bg-black/10"}`}
       ></div>
 
       {/* Stats */}
